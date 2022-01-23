@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class UıManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public Canvas Startcanvas;
     public Canvas RestartCanvas;
+    public Button restart;
     public TextMeshProUGUI scoretext;
     public static UıManager uıManagerInstance;
 
@@ -34,6 +36,7 @@ public class UıManager : MonoBehaviour
     {
         GameManager.gameManagerInstance.isGameActive = true;
         Startcanvas.gameObject.SetActive(false);
+        restart.gameObject.SetActive(false);
         CameraManager.cameraManagerInstance.ActivateCamera(1);
 
 
