@@ -17,6 +17,7 @@ TagManager:
   - money
   - diamond
   - gold
+  - fail
   layers:
   - Default
   - TransparentFX

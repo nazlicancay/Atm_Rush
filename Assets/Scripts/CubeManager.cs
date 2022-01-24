@@ -10,7 +10,7 @@ public class CubeManager : MonoBehaviour
     public static CubeManager cubeManagerInstanse;
     public List<GameObject> BounceList = new List<GameObject>();
     public List<GameObject> MoveList = new List<GameObject>();
-    public List<GameObject> MoveUpList = new List<GameObject>();
+    public GameObject Coll;
 
 
     public bool bounce = false;
@@ -67,6 +67,15 @@ public class CubeManager : MonoBehaviour
             
         }
 
+    }
+
+    public void ReOrder()
+    {
+        for (int i = 0; i < collactList.Count; i++)
+        {
+            collactList[i].transform.DOMoveZ(Coll.transform.position.z + i+1 ,0.5f);
+        }
+        
     }
 
 

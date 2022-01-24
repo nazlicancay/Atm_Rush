@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float maxRightX;
 
     public float speed;
+    public GameObject car;
 
 
   
@@ -28,17 +29,18 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.gameManagerInstance.isGameActive)
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * 13f);
+            transform.Translate(Vector3.forward * Time.deltaTime * 9f);
 
             animator.Play("run");
 
         }
 
-        if (transform.position.y ==
-            GameManager.gameManagerInstance.CoinNumber + GameManager.gameManagerInstance.atmCoinNumber)
+        if (MoneyCollitons.finish == true)
         {
-            ShowScore();
+            car.gameObject.SetActive(false);
         }
+
+      
 
         void Update()
         {
@@ -79,16 +81,7 @@ public class PlayerController : MonoBehaviour
 
 
     }
-
-    public void ShowScore()
-    {
-       
-        UıManager.uıManagerInstance.RestartCanvas.gameObject.SetActive(true);
-        UıManager.uıManagerInstance.scoretext.text = ((GameManager.gameManagerInstance.CoinNumber + GameManager.gameManagerInstance.atmCoinNumber).ToString());
-        
-
-    }
-
+    
 
 
 

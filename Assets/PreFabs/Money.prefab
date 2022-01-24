@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 9019140453071601464}
   - component: {fileID: 9019140453071601471}
   - component: {fileID: 9019140453071601470}
+  - component: {fileID: 772506675522456076}
   m_Layer: 0
   m_Name: Money
   m_TagString: collact
@@ -239,6 +240,22 @@ MonoBehaviour:
   gold: {fileID: 3849124552887599710}
   diamond: {fileID: 2973366846633704663}
   currentMoneyState: 0
+--- !u!54 &772506675522456076
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9019140453071601469}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &9019140453364204021
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,11 +267,9 @@ GameObject:
   - component: {fileID: 6277669451325546302}
   - component: {fileID: 6388801145705887601}
   - component: {fileID: 7973945126936908185}
-  - component: {fileID: 9019140453364204016}
-  - component: {fileID: 9019140453364204023}
   m_Layer: 0
   m_Name: Money
-  m_TagString: collact
+  m_TagString: money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,28 +337,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &9019140453364204016
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019140453364204021}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.75, z: 0.75}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &9019140453364204023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019140453364204021}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b302b1b456e74b9e9bb109ad5ef93ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -25,6 +25,10 @@ public class Collactor : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("fail"))
+        {
+            return;
+        }
         if (other.gameObject.CompareTag("collact"))
         {
             other.gameObject.tag = "Untagged";
@@ -33,10 +37,7 @@ public class Collactor : MonoBehaviour
             {
                 lastItem = CubeManager.cubeManagerInstanse.collactList.Last();
             }
-            
 
-           
-           //if(other.gameObject.CompareTag(""))
             CubeManager.cubeManagerInstanse.collactList.Add(other.gameObject);
             GameManager.gameManagerInstance.CoinNumber = CubeManager.cubeManagerInstanse.collactList.Count;
 
@@ -51,11 +52,9 @@ public class Collactor : MonoBehaviour
             StartCoroutine(CubeManager.cubeManagerInstanse.Bounce());
             other.gameObject.tag = "stacked";
 
-
-
-
-
         }
+        
+        
 
 
 

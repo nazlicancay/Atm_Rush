@@ -6,13 +6,14 @@ using DG.Tweening;
 using Random = UnityEngine.Random;
 
 
+[SelectionBase]
 public class MoneyCollitons : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Dollar;
     public GameObject gold;
     public GameObject diamond;
-
+    public static bool finish;
     public enum MoneyState
     {
         Dollar,
@@ -45,13 +46,17 @@ public class MoneyCollitons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.x <= -10)
+        {
+            gameObject.SetActive(false);
+        }
         
     }
 
     public Vector3 Randomplace()
     {
 
-        return new Vector3(Random.Range(4, -3), 0.01f, Random.Range(transform.position.z+3, transform.position.z + 6)); ;
+        return new Vector3(Random.Range(4, -3), -1f, Random.Range(transform.position.z+3, transform.position.z + 6)); ;
     }
 
     
@@ -78,8 +83,14 @@ public class MoneyCollitons : MonoBehaviour
         }
         if (other.CompareTag("sarkac"))
         {
-            transform.DOJump(Randomplace(), 1f, 2, 0.2f);
-            //Debug.Log("sarkaç ");
+            CubeManager.cubeManagerInstanse.collactList.Remove(gameObject);
+            transform.DOJump(Randomplace(), 1f, 2, 2f).OnComplete(()=> gameObject.SetActive(false));
+           
+            //gameObject.GetComponent<Collactor>().enabled = false;
+            Debug.Log(gameObject.tag.ToString());
+            CubeManager.cubeManagerInstanse.ReOrder();
+            
+            
         }
 
         if (other.gameObject.CompareTag("creditCart"))
@@ -87,6 +98,7 @@ public class MoneyCollitons : MonoBehaviour
            transform.gameObject.SetActive(false);
             transform.DOKill(true);
             Debug.Log("credi kart ");
+            CubeManager.cubeManagerInstanse.ReOrder();
 
         }
 
@@ -94,10 +106,10 @@ public class MoneyCollitons : MonoBehaviour
         {
             gameObject.tag = "Untagged";
             CubeManager.cubeManagerInstanse.collactList.Remove(gameObject);
-            CubeManager.cubeManagerInstanse.MoveUpList.Add(gameObject);
             transform.DOMoveX(-10, 1f);
-           GameManager.gameManagerInstance.anim.SetTrigger("sit");
-           
+            finish = true;
+
+
 
         }
 

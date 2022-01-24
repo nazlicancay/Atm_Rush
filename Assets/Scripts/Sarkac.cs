@@ -39,24 +39,7 @@ public class Sarkac : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("stacked"))
-        {
-            int index = CubeManager.cubeManagerInstanse.collactList.IndexOf(other.gameObject);
-            for (; index < CubeManager.cubeManagerInstanse.collactList.Count; index++)
-            {
-
-                CubeManager.cubeManagerInstanse.collactList[index].transform.parent = null;
-
-                CubeManager.cubeManagerInstanse.collactList.Remove(CubeManager.cubeManagerInstanse.collactList[index]);
-                other.gameObject.tag = "collact";
-
-
-            }
-            Debug.Log("kaybet");
-        }
-    }
+  
 
 
 }

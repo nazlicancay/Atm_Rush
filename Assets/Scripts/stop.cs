@@ -33,10 +33,16 @@ public class stop : MonoBehaviour
 
     private IEnumerator movePlayerUp(GameObject gameObject)
     {
+        CameraManager.cameraManagerInstance.ActivateCamera(2);
+
         var wait = new WaitForSeconds(2f);
         yield return wait;
-        gameObject.transform.DOMoveY(GameManager.gameManagerInstance.CoinNumber + GameManager.gameManagerInstance.atmCoinNumber, 0.5f);
-        //for(int i =0; i<)
+        gameObject.transform.DORotate(new Vector3(0,180,0), 1, 0);
+        for (int i = 0; i <=GameManager.gameManagerInstance.CoinNumber; i++)
+        {
+            gameObject.transform.DOMoveY(GameManager.gameManagerInstance.CoinNumber + GameManager.gameManagerInstance.atmCoinNumber, 2f);
+        }
+       
         
         
        
