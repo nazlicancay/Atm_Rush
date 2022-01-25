@@ -16,5 +16,6 @@ public class walkingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //mesh.transform.DO
     }
 }
